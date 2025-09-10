@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"task/db"
+	"github.com/mariamelwirish/task/db"
 
 	"github.com/spf13/cobra"
 )

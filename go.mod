@@ -1,4 +1,4 @@
-module task
+module github.com/mariamelwirish/task
 
 go 1.25.1
 

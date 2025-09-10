@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"task/db"
+	"github.com/mariamelwirish/task/db"
 
 	"github.com/spf13/cobra"
 )
