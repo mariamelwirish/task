@@ -7,7 +7,7 @@ import (
 // The command to run the main program (Our program is called "task").
 var RootCmd = &cobra.Command{
 	Use:   "task",
-	Short: "Task is a CLI Task Manager.",
+	Short: "task is a CLI Task Manager.",
 	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
