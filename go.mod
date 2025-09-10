@@ -1,6 +1,6 @@
 module github.com/mariamelwirish/task
 
-go 1.21
+go 1.25.1
 
 require (
 	github.com/boltdb/bolt v1.3.1
