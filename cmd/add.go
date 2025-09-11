@@ -14,7 +14,11 @@ var addCmd = &cobra.Command{
 	Short: "Adds a task to your task list.",
 	Run: func(cmd *cobra.Command, args []string) {
 		// in case task has more than one word -> join into sentence.
-		task := strings.Join(args, " ")
+		task := strings.TrimSpace(strings.Join(args, " "))
+		if task == "" {
+			fmt.Printf("Task cannot be empty!")
+			return
+		}
 
 		// create the task in db and handle errors.
 		_, err := db.CreateTask(task)

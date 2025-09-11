@@ -93,6 +93,14 @@ func DeleteTask(key int) error {
 	})
 }
 
+func UpdateTask(key int, task string) error {
+	return db.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket(taskBucket)
+		k := itob(key)
+		return b.Put(k, []byte(task))
+	})
+}
+
 // helper: integer-to-byte (to convert the id64 to []byte to store in DB).
 func itob(v int) []byte {
 	b := make([]byte, 8)

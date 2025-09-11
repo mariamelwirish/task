@@ -15,6 +15,7 @@ Usage:
 Available Commands:
   add         Adds a task to your task list.
   do          Marks a task as complete.
+  edit        Edit your task title.
   help        Help about any command
   list        Lists all of your tasks.
 
@@ -34,12 +35,15 @@ You have the following tasks:
 1. finish project
 2. clean dishes
 
-$ task do 1
-Marked to mark "1" as completed.
+$ task edit 1 finish final project
+Changed task "1" to finish final project.
+
+$ task do 2
+Marked to mark "2" as completed.
 
 $ task list
 You have the following tasks:
-1. clean dishes
+1. finish final project
 ```
 
 *Note: Lines prefixed with `$` are commands typed into the terminal, other lines are program output.*
@@ -48,6 +52,7 @@ You have the following tasks:
 
 - **Add tasks** - Quickly add new tasks with `task add`
 - **List tasks** - View all pending tasks with numbered IDs
+- **Edit tasks** - Update task titles with `task edit`
 - **Complete tasks** - Mark tasks as done with `task do`
 - **Persistent storage** - Uses BoltDB for reliable local data storage
 - **Cross-platform** - Works on Windows, macOS, and Linux
@@ -93,6 +98,15 @@ $ task list
 You have no tasks to complete! :D
 ```
 
+### Editing Tasks
+
+Update the title of an existing task:
+
+```bash
+task edit 1 Buy organic groceries
+task edit 2 Complete project documentation
+```
+
 ### Completing Tasks
 
 Mark tasks as complete by their number:
@@ -110,6 +124,7 @@ task do 1 3 5
 ```bash
 task --help           # Show main help
 task add --help       # Help for add command
+task edit --help      # Help for edit command
 task list --help      # Help for list command
 task do --help        # Help for do command
 ```
@@ -131,6 +146,7 @@ task/
 ├── cmd/              # Cobra command definitions
 │   ├── root.go       # Root command setup
 │   ├── add.go        # Add command implementation
+│   ├── edit.go       # Edit command implementation
 │   ├── list.go       # List command implementation
 │   └── do.go         # Do command implementation
 └── db/               # Database operations
@@ -142,4 +158,3 @@ task/
 - Tasks are stored in a local BoltDB database
 - Database location: `~/tasks.db` (in your home directory)
 - Data persists across terminal sessions and system reboots
-
